@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atividade Javascript</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+</head>
+
+<body>
+  <div class="container">
+    <h1>Atividade Javascript - Instruções</h1>
+    <p>Apresentar na tela os dados pessoais da dupla carregados a partir do arquivo JSON</p>
+    <p>
+      Criar o arquivo <code>dados.json</code> na mesma pasta deste arquivo index estruturado com as seguintes informações dos dois alunos:
+      <ul>
+        <li>Nome completo</li>
+        <li>Foto (nome do arquivo)</li>
+        <li>E-mail</li>
+        <li>Telefone</li>
+        <li>Data nascimento</li>
+        <li>Link do Github</li>
+        <li>Link do Linkedin</li>
+      </ul>
+    </p>
+    <p>A foto pode ser copiada manualmente no diretório <code>/img</code> já existente</p>
+    <p>Escrever o código Javascript para carregar os dados do JSON usando Fetch API e apresentar dentro da tela definida neste arquivo</p>
+    <p>Os dados podem ser carregados juntamente com a tela no navegador ou então através de algum evento (ex: clique em  botão)</p>
+    <button class="btn btn-primary" id="btnCarregar">Carregar dados</button>
+    <hr />
+    <div class="row">
+      <div class="col-md-6">
+        <article id="dadosContato1" class="card mt-3">
+          <h2 class="nome text-center">Nome do aluno 1</h2>
+          <img src="img/foto-placeholder.jpeg" class="foto card-img-top" alt="Foto do aluno" />
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fa-solid fa-envelope fa-lg fa-fw"></i>
+              <span class="email h6">emai1@teste.com.br</span>
+            </li>
+            <li class="list-group-item"><i class="fa-solid fa-phone fa-lg fa-fw"></i>
+              <span class="telefone h6">(11) 99999-1234</span>
+            </li>
+            <li class="list-group-item"><i class="fa-solid fa-cake-candles fa-lg fa-fw"></i>
+              <span class="dataNascimento h6">01/01/1970</span>
+            </li>
+            <li class="list-group-item"><i class="fa-brands fa-linkedin-in fa-lg fa-fw"></i>
+              <a href="" class="linkedin h6">https://br.linkedin.com/in/xpto</a>
+            </li>
+            <li class="list-group-item"><i class="fa-brands fa-github fa-lg fa-fw"></i>
+              <a href="" class="github h6">https://github.com/xpto</a></li>
+          </ul>
+        </article>
+      </div>
+      <div class="col-md-6">
+        <article id="dadosContato2" class="card mt-3">
+          <h2 class="nome text-center">Nome do aluno 2</h2>
+          <img src="img/foto-placeholder.jpeg" class="foto card-img-top" alt="Foto do aluno" />
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><i class="fa-solid fa-envelope fa-lg fa-fw"></i>
+              <span class="email h6">emai1@teste.com.br</span>
+            </li>
+            <li class="list-group-item"><i class="fa-solid fa-phone fa-lg fa-fw"></i>
+              <span class="telefone h6">(11) 99999-1234</span>
+            </li>
+            <li class="list-group-item"><i class="fa-solid fa-cake-candles fa-lg fa-fw"></i>
+              <span class="dataNascimento h6">01/01/1970</span>
+            </li>
+            <li class="list-group-item"><i class="fa-brands fa-linkedin-in fa-lg fa-fw"></i>
+              <a href="" class="linkedin h6">https://br.linkedin.com/in/xpto</a>
+            </li>
+            <li class="list-group-item"><i class="fa-brands fa-github fa-lg fa-fw"></i>
+              <a href="" class="github h6">https://github.com/xpto</a></li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script>
+    document.getElementById('btnCarregar').addEventListener('click', () => {
+  fetch('dados.json') // Acessa o arquivo JSON
+    .then(response => response.json()) // Converte o JSON para um objeto JavaScript
+    .then(data => {
+      // Preencher os dados do aluno 1
+      let aluno1 = data[0];
+      document.querySelector('#dadosContato1 .nome').textContent = aluno1.nomeCompleto;
+      document.querySelector('#dadosContato1 .foto').src = `img/${aluno1.foto}`;
+      document.querySelector('#dadosContato1 .email').textContent = aluno1.email;
+      document.querySelector('#dadosContato1 .email').href = `mailto:${aluno1.email}`;
+      document.querySelector('#dadosContato1 .telefone').textContent = aluno1.telefone;
+      document.querySelector('#dadosContato1 .dataNascimento').textContent = aluno1.dataNascimento;
+      document.querySelector('#dadosContato1 .linkedin').textContent = aluno1.linkedin;
+      document.querySelector('#dadosContato1 .linkedin').href = aluno1.linkedin;
+      document.querySelector('#dadosContato1 .github').textContent = aluno1.github;
+      document.querySelector('#dadosContato1 .github').href = aluno1.github;
+
+      // Preencher os dados do aluno 2
+      let aluno2 = data[1];
+      document.querySelector('#dadosContato2 .nome').textContent = aluno2.nomeCompleto;
+      document.querySelector('#dadosContato2 .foto').src = `img/${aluno2.foto}`;
+      document.querySelector('#dadosContato2 .email').textContent = aluno2.email;
+      document.querySelector('#dadosContato2 .email').href = `mailto:${aluno2.email}`;
+      document.querySelector('#dadosContato2 .telefone').textContent = aluno2.telefone;
+      document.querySelector('#dadosContato2 .dataNascimento').textContent = aluno2.dataNascimento;
+      document.querySelector('#dadosContato2 .linkedin').textContent = aluno2.linkedin;
+      document.querySelector('#dadosContato2 .linkedin').href = aluno2.linkedin;
+      document.querySelector('#dadosContato2 .github').textContent = aluno2.github;
+      document.querySelector('#dadosContato2 .github').href = aluno2.github;
+    })
+    .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
+});
+
+  </script>
+</body>
+</html>

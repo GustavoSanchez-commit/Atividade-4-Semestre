@@ -1,0 +1,20 @@
+[
+    {
+        "nomeCompleto": "Gustavo Sanchez",
+        "foto": "Eu.jpg",
+        "email": "gussan2127@gmail.com",
+        "telefone": "(11) 99999-9999",
+        "dataNascimento": "27/08/2004",
+        "github": "https://github.com/gussan2127",
+        "linkedin": "https://linkedin.com/in/gustavosanchez"
+    },
+    {
+        "nomeCompleto": "Outro Aluno",
+        "foto": "Eu.jpg",
+        "email": "outroaluno@example.com",
+        "telefone": "(11) 88888-8888",
+        "dataNascimento": "2002-05-10",
+        "github": "https://github.com/outroaluno",
+        "linkedin": "https://linkedin.com/in/outroaluno"
+    }
+]

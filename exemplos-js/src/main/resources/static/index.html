@@ -30,7 +30,6 @@
     <p>A foto pode ser copiada manualmente no diretório <code>/img</code> já existente</p>
     <p>Escrever o código Javascript para carregar os dados do JSON usando Fetch API e apresentar dentro da tela definida neste arquivo</p>
     <p>Os dados podem ser carregados juntamente com a tela no navegador ou então através de algum evento (ex: clique em  botão)</p>
-    <button class="btn btn-primary" id="btnCarregar">Carregar dados</button>
     <hr />
     <div class="row">
       <div class="col-md-6">
@@ -83,39 +82,22 @@
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
   <script>
-    document.getElementById('btnCarregar').addEventListener('click', () => {
-  fetch('dados.json') // Acessa o arquivo JSON
-    .then(response => response.json()) // Converte o JSON para um objeto JavaScript
-    .then(data => {
-      // Preencher os dados do aluno 1
-      let aluno1 = data[0];
-      document.querySelector('#dadosContato1 .nome').textContent = aluno1.nomeCompleto;
-      document.querySelector('#dadosContato1 .foto').src = `img/${aluno1.foto}`;
-      document.querySelector('#dadosContato1 .email').textContent = aluno1.email;
-      document.querySelector('#dadosContato1 .email').href = `mailto:${aluno1.email}`;
-      document.querySelector('#dadosContato1 .telefone').textContent = aluno1.telefone;
-      document.querySelector('#dadosContato1 .dataNascimento').textContent = aluno1.dataNascimento;
-      document.querySelector('#dadosContato1 .linkedin').textContent = aluno1.linkedin;
-      document.querySelector('#dadosContato1 .linkedin').href = aluno1.linkedin;
-      document.querySelector('#dadosContato1 .github').textContent = aluno1.github;
-      document.querySelector('#dadosContato1 .github').href = aluno1.github;
+    document.addEventListener("DOMContentLoaded", () => {fetch("dados.json").then(response => response.json()).then(data =>{
+      data.forEach((aluno, index) => {
+        var jsonCarregar = document.querySelector("#dadosContato" + (index + 1))
 
-      // Preencher os dados do aluno 2
-      let aluno2 = data[1];
-      document.querySelector('#dadosContato2 .nome').textContent = aluno2.nomeCompleto;
-      document.querySelector('#dadosContato2 .foto').src = `img/${aluno2.foto}`;
-      document.querySelector('#dadosContato2 .email').textContent = aluno2.email;
-      document.querySelector('#dadosContato2 .email').href = `mailto:${aluno2.email}`;
-      document.querySelector('#dadosContato2 .telefone').textContent = aluno2.telefone;
-      document.querySelector('#dadosContato2 .dataNascimento').textContent = aluno2.dataNascimento;
-      document.querySelector('#dadosContato2 .linkedin').textContent = aluno2.linkedin;
-      document.querySelector('#dadosContato2 .linkedin').href = aluno2.linkedin;
-      document.querySelector('#dadosContato2 .github').textContent = aluno2.github;
-      document.querySelector('#dadosContato2 .github').href = aluno2.github;
-    })
-    .catch(error => console.error('Erro ao carregar o arquivo JSON:', error));
-});
-
+        jsonCarregar.querySelector('.nome').textContent = aluno.nome;
+        jsonCarregar.querySelector('.foto').src = 'img/' + aluno.foto;
+        jsonCarregar.querySelector('.email').textContent = aluno.email;
+        jsonCarregar.querySelector('.email').href = 'mailto:' + aluno.email;
+        jsonCarregar.querySelector('.telefone').textContent = aluno.telefone;
+        jsonCarregar.querySelector('.dataNascimento').textContent = aluno.data;
+        jsonCarregar.querySelector('.linkedin').textContent = aluno.linkedin;
+        jsonCarregar.querySelector('.linkedin').href = aluno.linkedin;
+        jsonCarregar.querySelector('.github').textContent = aluno.github;
+        jsonCarregar.querySelector('.github').href = aluno.github;
+      })
+    })})
   </script>
 </body>
 </html>

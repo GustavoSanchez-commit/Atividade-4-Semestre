@@ -1,20 +1,21 @@
 [
     {
-        "nomeCompleto": "Gustavo Sanchez",
         "foto": "Eu.jpg",
-        "email": "gussan2127@gmail.com",
-        "telefone": "(11) 99999-9999",
-        "dataNascimento": "27/08/2004",
-        "github": "https://github.com/gussan2127",
-        "linkedin": "https://linkedin.com/in/gustavosanchez"
+        "nome": "Gustavo Sanchez",
+        "email": "gustavo.msanchez@senacsp.edu.br",
+        "telefone": "(11) 99705-1094",
+        "data": "27/08/2004",
+        "linkedin": "https://www.linkedin.com/in/gustavosanchezzz/",
+        "github": "https://github.com/GustavoSanchez-commit"
+        
     },
     {
-        "nomeCompleto": "Outro Aluno",
-        "foto": "Eu.jpg",
+        "foto": "Ela.jpg",
+        "nome": "Mariana Nery",
         "email": "outroaluno@example.com",
         "telefone": "(11) 88888-8888",
-        "dataNascimento": "2002-05-10",
-        "github": "https://github.com/outroaluno",
-        "linkedin": "https://linkedin.com/in/outroaluno"
+        "data": "00/00/2004",
+        "linkedin": "https://www.linkedin.com/in/gustavosanchezzz/",
+        "github": "https://github.com/GustavoSanchez-commit"
     }
 ]
